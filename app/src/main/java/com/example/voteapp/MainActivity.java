@@ -1,4 +1,4 @@
-package com.example.votelyapp;
+package com.example.voteapp;
 
 import android.os.Bundle;
 import android.view.View;
@@ -15,7 +15,7 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.votelyapp.databinding.ActivityMainBinding;
+import com.example.voteapp.databinding.ActivityMainBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 

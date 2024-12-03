@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "85272182355",
+    "project_id": "votely-c8593",
+    "storage_bucket": "votely-c8593.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:85272182355:android:8d0aabfdc6cc5c6e5010a6",
+        "android_client_info": {
+          "package_name": "com.example.voteapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlaNJE5dPZ1uXOGD3zm13J-hwoimoF2Cc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
