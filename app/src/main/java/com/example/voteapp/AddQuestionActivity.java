@@ -34,7 +34,7 @@ public class AddQuestionActivity extends AppCompatActivity {
             return;
         }
 
-        // API'ye soru ekleme işlemi
+        // adding questions to API
         HashMap<String, String> postData = new HashMap<>();
         postData.put("question", question);
         postData.put("option1", option1);
@@ -42,7 +42,7 @@ public class AddQuestionActivity extends AppCompatActivity {
 
         new ApiClient().post("/api/polls", postData, response -> {
             Toast.makeText(this, "Question added successfully", Toast.LENGTH_SHORT).show();
-            setResult(RESULT_OK); // Ana sayfada yenileme tetiklenecek
+            setResult(RESULT_OK); // Refreshing the main page
             finish();
         }, error -> {
             Toast.makeText(this, "Error adding question", Toast.LENGTH_SHORT).show();
