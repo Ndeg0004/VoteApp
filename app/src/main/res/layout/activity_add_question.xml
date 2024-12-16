@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/editTextQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Question" />
+
+    <EditText
+        android:id="@+id/editTextOption1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Option 1" />
+
+    <EditText
+        android:id="@+id/editTextOption2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Option 2" />
+
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:onClick="saveQuestion" />
+</LinearLayout>
