@@ -18,9 +18,6 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private EditText email, password;
-    private Button loginButton;
-
 
     private FirebaseAuth mAuth;
 
