@@ -43,13 +43,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == ADD_QUESTION_REQUEST_CODE && resultCode == RESULT_OK) {
-            // Yeni bir soru eklendiğinde listeyi yenile
+            // Refresh the list when a new question added
             loadQuestions();
         }
     }
 
     private void loadQuestions() {
-        // API'den tüm soruları al
+        // get questions from API
         new ApiClient().get("/api/polls", response -> {
             try {
                 questionList.clear();
