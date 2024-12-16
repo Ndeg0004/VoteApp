@@ -71,7 +71,7 @@
             android:layout_height="match_parent"
             android:text="Forgot Password?"
             android:textColor="@color/black"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:clickable="true"
             android:layout_gravity="left">
 
