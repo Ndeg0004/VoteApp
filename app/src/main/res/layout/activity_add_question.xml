@@ -6,24 +6,27 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="#F5F5DC">
+    android:background="#bc2c4c">
 
     <EditText
         android:id="@+id/editTextQuestion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#F5F5DC"
         android:hint="Question" />
 
     <EditText
         android:id="@+id/editTextOption1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#F5F5DC"
         android:hint="Option 1" />
 
     <EditText
         android:id="@+id/editTextOption2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#F5F5DC"
         android:hint="Option 2" />
 
     <Button
