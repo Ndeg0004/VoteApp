@@ -1,69 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#bc2c4c">
+    android:background="@drawable/login_bg"
+    android:gravity="center"
+    android:padding="16dp">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="234dp"
-        android:layout_height="215dp"
-        android:src="@drawable/votely_logo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="6dp"
-        tools:ignore="MissingConstraints" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:orientation="vertical"
-        android:background="#FFFFF0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:gravity="center"
+        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <ImageView
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:src="@drawable/login_logo_white">
+
+        </ImageView>
+
+        <EditText
+            android:id="@+id/username_input"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/userhome_rounded"
+            android:hint="Username/Email"
+            android:inputType="text"
             android:textSize="20sp"
-            android:textStyle="bold"
-            android:padding="10dp"
-            android:text="login" />
+            android:padding="15dp"
+            android:textColorHint="@color/white"
+            android:textColor="@color/black">
+
+        </EditText>
 
         <EditText
-            android:id="@+id/email"
+            android:id="@+id/password_input"
             android:layout_width="match_parent"
-            android:layout_height="66dp"
-            android:layout_margin="5dp"
-            android:hint="enter your email"
-            android:inputType="textEmailAddress"
-            android:padding="10dp" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/userhome_rounded"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:padding="15dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/white"
+            android:textSize="20sp">
 
-        <EditText
-            android:id="@+id/password"
-            android:layout_width="match_parent"
-            android:layout_height="66dp"
-            android:layout_margin="5dp"
-            android:padding="10dp"
-            android:hint="enter your password"
-            android:inputType="textPassword" />
+        </EditText>
+
 
         <Button
-            android:id="@+id/loginButton"
-            android:layout_width="172dp"
-            android:layout_height="50dp"
-            android:layout_margin="5dp"
-            android:padding="10dp"
-            android:text="login" />
+            android:id="@+id/login_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:background="@drawable/button_selector"
+            android:text="Login"
+            android:textColor="@color/white"
+            android:textSize="20sp">
 
+        </Button>
+
+        <TextView
+            android:id="@+id/forgotpass_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Forgot Password?"
+            android:textColor="#030A50"
+            android:textSize="20sp"
+            android:clickable="true"
+            android:layout_gravity="left">
+
+        </TextView>
 
     </LinearLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
 

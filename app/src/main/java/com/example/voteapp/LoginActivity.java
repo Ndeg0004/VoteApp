@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,16 +29,20 @@ public class LoginActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        mAuth = FirebaseAuth.getInstance();
-        email = findViewById(R.id.email);
-        password = findViewById(R.id.password);
-        loginButton = findViewById(R.id.loginButton);
-        loginButton.setOnClickListener(
-                v -> {
-                    String emailtext = email.getText().toString();
-                    String passwordtext = password.getText().toString();
 
-                    signIn(emailtext, passwordtext);
+
+        mAuth = FirebaseAuth.getInstance();
+        EditText usernameInput = findViewById(R.id.username_input);
+        EditText passwordInput = findViewById(R.id.password_input);
+        Button loginBtn = findViewById(R.id.login_btn);
+        TextView forgotPass = findViewById(R.id.forgotpass_btn);
+
+        loginBtn.setOnClickListener(
+                v -> {
+                    String username = usernameInput.getText().toString();
+                    String password = passwordInput.getText().toString();
+
+                    signIn(username, password);
                 }
         );
     }
