@@ -1,5 +1,6 @@
 package com.example.voteapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -7,10 +8,13 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.voteapp.firebase.realtimeDatabase.PollsManager;
+
 import java.util.HashMap;
 
 public class AddQuestionActivity extends AppCompatActivity {
     private EditText editTextQuestion, editTextOption1, editTextOption2;
+    private final PollsManager pollsManager = new PollsManager();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,26 +30,17 @@ public class AddQuestionActivity extends AppCompatActivity {
 
     public void saveQuestion(View view) {
         String question = editTextQuestion.getText().toString().trim();
-        String option1 = editTextOption1.getText().toString().trim();
-        String option2 = editTextOption2.getText().toString().trim();
 
-        if (question.isEmpty() || option1.isEmpty() || option2.isEmpty()) {
+
+        if (question.isEmpty() ) {
             Toast.makeText(this, "Please fill out all fields", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // adding questions to API
-        HashMap<String, String> postData = new HashMap<>();
-        postData.put("question", question);
-        postData.put("option1", option1);
-        postData.put("option2", option2);
+        pollsManager.addPoll(question, question);
 
-        new ApiClient().post("/api/polls", postData, response -> {
-            Toast.makeText(this, "Question added successfully", Toast.LENGTH_SHORT).show();
-            setResult(RESULT_OK); // Refreshing the main page
-            finish();
-        }, error -> {
-            Toast.makeText(this, "Error adding question", Toast.LENGTH_SHORT).show();
-        });
+        Intent intent = new Intent(this, MainActivity.class);
+        this.startActivity(intent);
+
     }
 }

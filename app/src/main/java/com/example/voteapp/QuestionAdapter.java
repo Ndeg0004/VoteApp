@@ -6,45 +6,66 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.voteapp.model.Poll;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHolder> {
-    private ArrayList<Question> questionList;
-
-    public QuestionAdapter(MainActivity mainActivity, ArrayList<Question> questionList) {
-        this.questionList = questionList;
-    }
+    private final List<Poll> polls = new ArrayList<>();
+    private final MutableLiveData<Poll> onItemClickLiveData = new MutableLiveData<>();
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_question, parent, false);
-        return new ViewHolder(view);
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_question, viewGroup, false);
+        return new ViewHolder(v, onItemClickLiveData);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Question question = questionList.get(position);
-        holder.textViewQuestion.setText(question.getQuestion());
-        holder.textViewOption1.setText("Option 1: " + question.getOption1());
-        holder.textViewOption2.setText("Option 2: " + question.getOption2());
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+        viewHolder.setItem(polls.get(i));
     }
 
     @Override
     public int getItemCount() {
-        return questionList.size();
+        return polls.size();
+    }
+
+    public void onFeedUpdate(List<Poll> polls) {
+        this.polls.clear();
+        this.polls.addAll(polls);
+        notifyDataSetChanged();
+    }
+
+    public LiveData<Poll> onPollItemClick() {
+        return onItemClickLiveData;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView textViewQuestion, textViewOption1, textViewOption2;
 
-        public ViewHolder(@NonNull View itemView) {
+        private Poll poll;
+
+        public ViewHolder(@NonNull View itemView, MutableLiveData<Poll> onItemClickLiveData) {
             super(itemView);
-            textViewQuestion = itemView.findViewById(R.id.textViewQuestion);
-            textViewOption1 = itemView.findViewById(R.id.textViewOption1);
-            textViewOption2 = itemView.findViewById(R.id.textViewOption2);
+
+            itemView.setOnClickListener(v -> {
+                if (poll != null) {
+                    onItemClickLiveData.postValue(poll);
+                }
+            });
         }
+
+        public void setItem(Poll poll) {
+            this.poll = poll;
+
+            TextView question = itemView.findViewById(R.id.textViewQuestion);
+            question.setText(poll.question);
+        }
+
     }
 }

@@ -7,6 +7,18 @@
     android:padding="16dp"
     android:background="#F5F5DC">
 
+    <!-- Back Button -->
+
+    <Button
+        android:id="@+id/buttonBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@android:color/holo_blue_dark"
+        android:padding="8dp"
+        android:text="Back"
+        android:textColor="@android:color/white" />
+
     <TextView
         android:id="@+id/textViewQuestion"
         android:layout_width="match_parent"
@@ -20,20 +32,19 @@
         android:id="@+id/buttonVoteOption1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Vote for Option 1" />
+        android:text="Vote Yes" />
 
     <Button
         android:id="@+id/buttonVoteOption2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Vote for Option 2" />
+        android:text="Vote No" />
 
     <TextView
         android:id="@+id/textViewResults"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Results"
         android:padding="8dp"
+        android:text="Results"
         android:textSize="16sp" />
 </LinearLayout>
-
